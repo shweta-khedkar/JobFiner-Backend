@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import UserRoute from "./Routes/UserRoute.js";
 import { errorHandler } from "./Middlewares/ErrorMiddleware.js";
-
+import JobRoute from "./Routes/JobRoute.js";
 //configure
 dotenv.config();
 
@@ -32,7 +32,8 @@ app.get("/api/v1/health", (_, res) => {
 
 //Routes
 app.use("/api/v1/users", UserRoute);
-//app.use("/api/v1/jobs");
+app.use("/api/v1/jobs", JobRoute);
 
+//Middleware
 app.use(errorHandler);
 export default app;
