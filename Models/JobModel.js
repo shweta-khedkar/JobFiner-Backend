@@ -22,7 +22,7 @@ const jobSchema = new Schema(
     },
     jobType: {
       type: String,
-      enum: ["Full time", "Part time", "Contract", "Internship"],
+      enum: ["Full Time", "Part Time", "Contract", "Internship"],
       required: true,
     },
     remoteOffice: {
