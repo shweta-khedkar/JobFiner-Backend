@@ -100,3 +100,19 @@ export const editJobPost = asyncHandler(async (req, res) => {
     })
   );
 });
+
+//delete Job Controller
+
+export const DeleteJob = asyncHandler(async (req, res) => {
+  const jobId = req.params?.jobId;
+  const job = await Job.findById(jobId);
+  if (!job) {
+    throw new ApiError(404, "Job Not Found");
+  }
+  const deleteJob = await job.deleteOne();
+  res.status(200).json(
+    new ApiResponse(200, "Job post Deleted successfully!", {
+      job: deleteJob,
+    })
+  );
+});
